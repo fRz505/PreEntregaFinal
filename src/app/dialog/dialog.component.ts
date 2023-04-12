@@ -1,6 +1,7 @@
+import { formatDate } from '@angular/common';
 import { Component, Inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MatDialogRef } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
 
 @Component({
@@ -11,15 +12,18 @@ import { MatDialogRef } from '@angular/material/dialog';
 export class DialogComponent  {
   userForm: FormGroup
 
-  constructor(private fb:FormBuilder, private dialogRef: MatDialogRef<DialogComponent>){
+  constructor(private fb:FormBuilder, private dialogRef: MatDialogRef<DialogComponent>, @Inject(MAT_DIALOG_DATA) public data: any){
+    console.log(data);
+    
     this.userForm = this.fb.group({
-      name: ['', Validators.required],
-      lastname: ['',Validators.required],
-      inscription: ['',Validators.required],
+      name: [`${data.alumno === null ? '' : data.alumno.name}`, Validators.required],
+      lastname: [`${data.alumno === null ? '' : data.alumno.lastname}`,Validators.required],
+      inscription: [`${data.alumno === null ? '' : formatDate(data.alumno.inscription, 'yyyy-MM-dd', 'en')}`,Validators.required],
     })
   }
+
   getData(){
     console.log(this.userForm.getRawValue());
-    this.dialogRef.close(this.userForm.getRawValue());
+    this.dialogRef.close({alumno: this.userForm.getRawValue(), mode: this.data.alumno === null ? "add" : "edit"});
   }
 }

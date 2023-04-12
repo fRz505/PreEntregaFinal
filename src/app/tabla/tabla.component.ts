@@ -56,22 +56,41 @@ export class TablaComponent {
 
     this.table.renderRows();
   }
-  openDialog() {
+  openDialog(mode: string, row) {
     const dialogRef = this.dialog.open(DialogComponent,{
-      data: 'hola',
+      data: {
+        mode: mode,
+        alumno: row
+      },
       height: '400px',
       width: '600px',
     });
     dialogRef.afterClosed().subscribe(
-      (res: Alumno)=>{
+      (res: any)=>{
         // Receive data from dialog component
         // res contains data sent from the dialog
         console.log(res);
        
-        res.position =  this.dataSource.filteredData.length + 1;
+        res.alumno.position =  this.dataSource.filteredData.length + 1;
 
         
-        this.dataSource.filteredData.push(res);
+        if (res.mode === 'add') {
+          this.dataSource.filteredData.push(res.alumno);
+        } else {
+
+          // this.dataSource.filteredData.forEach((e, i) => {
+          //   if(e[i].position === res.alumno.position) {
+          //     console.log(i);
+              
+          //     e[i].name = res.alumno.name;
+          //     e[i].lastname = res.alumno.lastname;
+          //     e[i].inscription = res.alumno.inscription;
+          //   }
+          // })
+
+          
+          
+        }
         this.table.renderRows();
       }
     );
