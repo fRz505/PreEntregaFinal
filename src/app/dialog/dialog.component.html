@@ -1,0 +1,45 @@
+<div class="card">
+  <form [formGroup]="userForm">
+    <div class="mt-5">
+      <div class="form-row">
+        <div class="col-md-12">
+          <div class="form-group">
+            <label>Name</label>
+          </div>
+          <div class="form-row">
+            <div class="col">
+              <input type="text" formControlName="name" class="form-control" placeholder="name">
+            </div>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="form-group">
+            <!-- <label>Lastname</label> -->
+          </div>
+          <div class="form-row">
+            <div class="col">
+              <!-- <input type="text" formControlName="lastname" class="form-control" placeholder="lastname"> -->
+            </div>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="form-group">
+            <label>Inscription</label>
+          </div>
+          <div class="form-row">
+            <div class="col">
+              <input type="date" formControlName="inscription" class="form-control" placeholder="inscription">
+            </div>
+          </div>
+        </div>
+        <div class="form-row mt-4">
+          <div class="col-md-6">
+              <button type="button" class="btn btn-primary" (click)="getData()">
+                Agregar alumno
+              </button>
+          </div>
+        </div>
+      </div>   
+    </div>
+  </form>
+</div>
