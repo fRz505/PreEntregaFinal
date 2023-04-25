@@ -9,6 +9,9 @@ import { TablaModule } from '../tabla/tabla.module';
 import { DialogModule } from '../dialog/dialog.module';
 import {MatDialogModule} from '@angular/material/dialog';
 import { DirectivesModule } from '../shared/directives/directives.module';
+import { RouterModule } from '@angular/router';
+import {MatListModule} from '@angular/material/list';
+import { CardModule } from '../card/card.module';
 
 
 
@@ -27,6 +30,9 @@ import { DirectivesModule } from '../shared/directives/directives.module';
     DialogModule,
     MatDialogModule,
     DirectivesModule,
+    RouterModule,
+    MatListModule,
+    CardModule
   ],
   exports: [
     DashboardComponent

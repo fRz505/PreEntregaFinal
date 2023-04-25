@@ -1,0 +1,15 @@
+.card1 {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.img { 
+    height: 300px;
+    width: 300px;
+}
+
+.card2 {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-evenly;
+}

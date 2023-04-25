@@ -16,9 +16,9 @@ export class DialogComponent  {
     console.log(data);
     
     this.userForm = this.fb.group({
-      name: [`${data.alumno === null ? '' : data.alumno.name}`, Validators.required],
-      lastname: [`${data.alumno === null ? '' : data.alumno.lastname}`,Validators.required],
-      inscription: [`${data.alumno === null ? '' : formatDate(data.alumno.inscription, 'yyyy-MM-dd', 'en')}`,Validators.required],
+      name: [`${!data.alumno ? '' : data.alumno.name}`, Validators.required],
+      lastname: [`${!data.alumno ? '' : data.alumno.lastname}`,Validators.required],
+      inscription: [`${!data.alumno ? '' : formatDate(data.alumno.inscription, 'yyyy-MM-dd', 'en')}`,Validators.required],
     })
   }
 

@@ -2,7 +2,7 @@ import { SelectionModel } from '@angular/cdk/collections';
 import { Component, EventEmitter, Input, Output, ViewChild } from '@angular/core';
 import { MatTable, MatTableDataSource } from '@angular/material/table';
 import { DialogComponent } from '../dialog/dialog.component';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 
 
 export class Alumno {
@@ -38,6 +38,7 @@ export class TablaComponent {
   selection = new SelectionModel<Alumno>(true, []);
 
   @ViewChild(MatTable) table: MatTable<Alumno>;
+ 
 
   constructor(public dialog: MatDialog) {
 
@@ -94,6 +95,30 @@ export class TablaComponent {
         this.table.renderRows();
       }
     );
+  }
+
+  editarAlumno(alumnoParaEditar: Alumno): void {
+    console.log("edit: ", alumnoParaEditar);
+    
+    var config: MatDialogConfig = {
+      data: {
+        alumno: alumnoParaEditar
+      }
+    };
+
+      const dialog = this.dialog.open(DialogComponent, config);
+      dialog.afterClosed().subscribe((dataAlumnoEditado)=> {
+        if (dataAlumnoEditado) {
+          this.dataSource.filteredData = this.dataSource.filteredData.map(
+            (alumnoActual) => alumnoActual.position === alumnoParaEditar.position
+            ? ({...alumnoActual, ...dataAlumnoEditado})
+            : alumnoActual,
+          )
+        }
+        console.log(this.dataSource.filteredData);
+        
+        this.table.renderRows();
+      } )
   }
 
 
