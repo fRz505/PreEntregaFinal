@@ -1,0 +1,22 @@
+{
+  "login": [
+    {
+      "id": 1,
+      "nombre": "Franco",
+      "apellido": "Marquillas",
+      "email": "franco@gmail.com",
+      "password": "1234",
+      "token": "asdoipasndoasdjiasjdaosdmklandalskdnadaASDNMKASD",
+      "role": "admin"
+    },
+    {
+      "nombre": "Facundo",
+      "apellido": "perez",
+      "email": "juan@gmail.com",
+      "password": 1231231231,
+      "token": "laksndaklsbdauytfvwdwa",
+      "role": "user",
+      "id": 4
+    }
+  ]
+}

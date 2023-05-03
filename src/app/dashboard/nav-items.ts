@@ -13,6 +13,10 @@ const links: NavItem[] = [
 {
     path: 'card',
     title: 'Tarjetas',
+},
+{
+    path: 'login',
+    title: 'Iniciar Sesion',
 }
 ]
 

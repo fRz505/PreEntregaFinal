@@ -12,6 +12,7 @@ import { DirectivesModule } from '../shared/directives/directives.module';
 import { RouterModule } from '@angular/router';
 import {MatListModule} from '@angular/material/list';
 import { CardModule } from '../card/card.module';
+import { LoginModule } from '../login/login.module';
 
 
 
@@ -32,7 +33,8 @@ import { CardModule } from '../card/card.module';
     DirectivesModule,
     RouterModule,
     MatListModule,
-    CardModule
+    CardModule,
+    LoginModule,
   ],
   exports: [
     DashboardComponent

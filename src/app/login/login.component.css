@@ -1,0 +1,19 @@
+span {
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+input {
+    border-radius: 5px;
+}
+
+h5 {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.registro {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
